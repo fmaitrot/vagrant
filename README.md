@@ -5,6 +5,8 @@ Setup a Java development environment in Vagrant
  * Ubuntu 14.04 LTS with xfce4
  * 2 vCPU
  * 4 Go RAM
+
+### Tools description
  * Oracle Java 8
  * Git
  * Maven 3

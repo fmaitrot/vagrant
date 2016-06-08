@@ -20,6 +20,10 @@ Vagrant.configure(2) do |config|
     sudo echo "LC_ALL=en_US.UTF-8" >> /etc/environment
     sudo echo "LC_CTYPE=en_US.UTF-8" >> /etc/environment
 
+    # Set keyboard configuration
+    sudo loadkeys fr
+    sudo setxkbmap fr
+
     # Install JAVA 8
     sudo add-apt-repository -y ppa:webupd8team/java
     sudo apt-get update
@@ -41,7 +45,11 @@ Vagrant.configure(2) do |config|
     # Install GUI
     sudo apt-get install -y xfce4 virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11
     sudo apt-get install gnome-icon-theme-full tango-icon-theme
+
+    # Configure GUI
     sudo echo "allowed_users=anybody" > /etc/X11/Xwrapper.config
+    xfconf-query -c xsettings -p /Net/ThemeName -s "Xfce-4.6"
+    xfconf-query -c xsettings -p /Net/IconThemeName -s "Tango"
 
     # Install ATOM
     sudo add-apt-repository -y ppa:webupd8team/atom
